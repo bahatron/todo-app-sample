@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+    api:
+        image: todo-api
+        container_name: todo-api
+        command: npm run nodemon
+        ports:
+            - 3000:3000

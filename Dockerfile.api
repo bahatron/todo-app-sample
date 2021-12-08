@@ -1,0 +1,10 @@
+FROM node:lts-slim as src
+
+WORKDIR /app
+COPY ./api/package.json ./
+RUN npm install
+COPY ./api .
+RUN npm run build:clean
+
+FROM src as dist
+ENV NODE_ENV=production

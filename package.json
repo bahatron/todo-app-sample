@@ -1,0 +1,36 @@
+{
+    "name": "todo-app-sample",
+    "version": "1.0.0",
+    "description": "A sample TODO notes app using React and Node in a monorepo fashion",
+    "scripts": {
+        "postinstall": "lerna bootstrap",
+        "prettier": "prettier --write '**/*.(ts|json|vue|scss)'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bahatron/todo-app-sample.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bahatron/todo-app-sample/issues"
+    },
+    "homepage": "https://github.com/bahatron/todo-app-sample#readme",
+    "dependencies": {
+        "husky": "^7.0.4",
+        "lerna": "^4.0.0",
+        "lint-staged": "^12.1.2",
+        "prettier": "^2.5.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.(ts|json|vue|scss)": [
+            "prettier --write",
+            "git add"
+        ]
+    }
+}
