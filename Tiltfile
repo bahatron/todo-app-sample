@@ -13,4 +13,7 @@ docker_build(
         "Dockerfile.api",
         "./api"
     ],
+    ignore=[
+        "./api/**/*.interface.ts"
+    ]
 )

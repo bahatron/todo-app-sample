@@ -1,6 +1,6 @@
 {
     "watch": ["src"],
     "ext": "ts",
-    "ignore": [],
-    "exec": "ts-node ./src/bin/api-server.ts"
+    "ignore": ["**/*.interface.ts"],
+    "exec": "npm run schema:compile && ts-node ./src/bin/api-server.ts"
 }

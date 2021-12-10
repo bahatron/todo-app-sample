@@ -4,7 +4,8 @@
     "description": "A sample TODO notes app using React and Node in a monorepo fashion",
     "scripts": {
         "postinstall": "lerna bootstrap",
-        "prettier": "prettier --write '**/*.(ts|json|vue|scss)'"
+        "prettier": "prettier --write '**/*.(ts|json|vue|scss)'",
+        "lernaUpdate": "lerna exec -- npm update"
     },
     "repository": {
         "type": "git",

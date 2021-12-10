@@ -1,9 +1,31 @@
 version: "3.5"
 
+x-postgres-config: &postgres-config
+    POSTGRES_USER: admin
+    POSTGRES_PASSWORD: secret
+    POSTGRES_DB: postgres
+    POSTGRES_PORT: 5432
+    POSTGRES_HOST: postgres
+
 services:
+    postgres:
+        image: postgres:13
+        container_name: todo-postgres
+        ports:
+            - 5432:5432
+        volumes:
+            - ./postgres/scripts:/scripts
+            - ./postgres/dumps:/dumps
+        environment:
+            <<: *postgres-config
+
     api:
         image: todo-api
         container_name: todo-api
         command: npm run nodemon
         ports:
             - 3000:3000
+        volumes:
+            - ./api/src/interfaces:/app/src/interfaces
+        environment:
+            <<: *postgres-config
