@@ -1,14 +1,8 @@
-import request from "supertest";
-import { Server } from "../../server/app";
+import { $testApi } from "../../utils/jest";
+import { $logger } from "../../utils/logger";
 
 describe("GET /ping", () => {
-    let app: any;
-
-    beforeAll(() => {
-        app = Server();
-    });
-
     it("responds with http 200", async () => {
-        request(app).get("/ping").expect(200);
+        $testApi.get("/ping").expect(200);
     });
 });

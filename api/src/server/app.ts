@@ -1,8 +1,8 @@
 import express from "express";
-import { pingController } from "../controllers/ping/ping.controller";
 import { errorHandler } from "./middleware/error-handler";
 import { setRequestIdMiddleware } from "./middleware/request-id";
 import { requestTimerMiddleware } from "./middleware/request-timer";
+import { router } from "./router";
 
 export function Server() {
     const app = express();
@@ -11,7 +11,7 @@ export function Server() {
     app.use(setRequestIdMiddleware);
     app.use(requestTimerMiddleware);
 
-    app.get("/ping", pingController);
+    app.use(router);
 
     app.use(errorHandler);
 

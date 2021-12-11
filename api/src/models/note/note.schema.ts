@@ -1,6 +1,9 @@
-export default {
+import { JSONSchema } from "json-schema-to-typescript";
+
+export default <JSONSchema>{
     type: "object",
     aditionalProperties: false,
+    required: ["id", "userId", "createdAt", "note"],
     properties: {
         id: {
             type: "string",

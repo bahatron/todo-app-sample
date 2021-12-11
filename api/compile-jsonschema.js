@@ -31,11 +31,6 @@ function compileInterface(path) {
     return new Promise((resolve) => {
         compile(schema, fileName)
             .then((compiledInterface) => {
-                console.log({
-                    fileName,
-                    targetPath,
-                });
-
                 return writeFile(targetPath, compiledInterface, resolve);
             })
             .then(() => console.log(`compiled ts interface from: ${path}`))
