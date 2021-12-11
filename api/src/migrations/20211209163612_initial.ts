@@ -1,7 +1,7 @@
 import { Knex } from "knex";
 
 export const USER_TABLE = "users";
-export const TODO_TABLE = "todos";
+export const NOTES_TABLE = "notes";
 
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable(USER_TABLE, (table) => {
@@ -12,7 +12,7 @@ export async function up(knex: Knex): Promise<void> {
         table.string("password");
     });
 
-    await knex.schema.createTable(TODO_TABLE, (table) => {
+    await knex.schema.createTable(NOTES_TABLE, (table) => {
         table.string("id").primary();
         table.string("userId");
         table.timestamp("createdAt").notNullable();

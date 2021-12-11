@@ -37,7 +37,7 @@ if (argsContains("down")) {
 /**
  * @description: starts the local dev environment
  */
-if (argsContains(["up", "dc"])) {
+if (argsContains(["up", "dev"])) {
     if (argsContains(["-c", "--clean"])) {
         shutDown();
     }
