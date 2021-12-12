@@ -18,8 +18,6 @@ export async function up(knex: Knex): Promise<void> {
             table.index("email");
         });
 
-        $logger.info(`user table created`);
-
         await trx.schema.createTable(NOTES_TABLE, (table) => {
             table.string("id").primary();
             table.string("userId");
@@ -29,8 +27,6 @@ export async function up(knex: Knex): Promise<void> {
 
             table.index("userId");
         });
-
-        $logger.info(`note table created`);
     });
 }
 

@@ -23,7 +23,7 @@ export interface Route {
                 };
             };
         };
-        responses: {
+        responses?: {
             [k: number]: {
                 "application/json": {
                     schema: JSONSchema;
