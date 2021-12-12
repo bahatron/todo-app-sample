@@ -1,8 +1,6 @@
-import { Server } from "../server/app";
+import { app } from "../server/app";
 import { $postgres } from "../services/postgres";
 import { $logger } from "../utils/logger";
-
-let app = Server();
 
 $postgres.migrate.latest().then(() => {
     $logger.info(`Database up to date`);

@@ -1,25 +1,36 @@
 import { Knex } from "knex";
+import { $logger } from "../utils/logger";
 
 export const USER_TABLE = "users";
 export const NOTES_TABLE = "notes";
 
 export async function up(knex: Knex): Promise<void> {
-    await knex.schema.createTable(USER_TABLE, (table) => {
-        table.string("id").primary();
-        table.string("email").unique();
-        table.string("firstName");
-        table.string("lastName");
-        table.string("password");
-    });
+    await knex.transaction(async (trx) => {
+        await trx.schema.createTable(USER_TABLE, (table) => {
+            table.string("id").primary();
+            table.string("email").unique();
+            table.string("firstName");
+            table.string("lastName");
+            table.string("password").notNullable();
+            table.timestamp("createdAt").notNullable();
+            table.timestamp("updatedAt");
 
-    await knex.schema.createTable(NOTES_TABLE, (table) => {
-        table.string("id").primary();
-        table.string("userId");
-        table.timestamp("createdAt").notNullable();
-        table.timestamp("updatedAt");
-        table.text("note");
+            table.index("email");
+        });
 
-        table.index("userId");
+        $logger.info(`user table created`);
+
+        await trx.schema.createTable(NOTES_TABLE, (table) => {
+            table.string("id").primary();
+            table.string("userId");
+            table.timestamp("createdAt").notNullable();
+            table.timestamp("updatedAt");
+            table.text("body");
+
+            table.index("userId");
+        });
+
+        $logger.info(`note table created`);
     });
 }
 

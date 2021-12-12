@@ -22,7 +22,8 @@ services:
     api:
         image: todo-api
         container_name: todo-api
-        command: npm run nodemon
+        # command: npm run nodemon
+        command: npm run pm2:watch
         ports:
             - 3000:3000
         volumes:

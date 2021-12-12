@@ -3,7 +3,7 @@ import { JSONSchema } from "json-schema-to-typescript";
 export default <JSONSchema>{
     type: "object",
     aditionalProperties: false,
-    required: ["id", "userId", "createdAt", "note"],
+    required: ["id", "userId", "createdAt", "body"],
     properties: {
         id: {
             type: "string",
@@ -19,7 +19,7 @@ export default <JSONSchema>{
             type: "string",
             format: "date-time",
         },
-        note: {
+        body: {
             type: "string",
         },
     },

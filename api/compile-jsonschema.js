@@ -15,18 +15,12 @@ function getDirFiles(path) {
         .map((path) => resolve(path));
 }
 
-function compileInterface(path) {
-    let fileName = basename(path).split(".").shift();
+function compileTsInterface(path, schema, fileName) {
     let targetPath = resolve(
         process.cwd(),
         "./src/interfaces",
         basename(path).replace(".schema.ts", ".interface.ts"),
     );
-
-    let schema = require(path).default;
-    if (!schema) {
-        return;
-    }
 
     return new Promise((resolve) => {
         compile(schema, fileName)
@@ -38,8 +32,19 @@ function compileInterface(path) {
     });
 }
 
-Promise.all(
-    getDirFiles(resolve(__dirname, "./src")).map(compileInterface),
-).then(() => {
-    console.log(`JSON Schemas compiled to TypeScript`);
-});
+function compileSchema(path) {
+    let fileName = basename(path).split(".").shift();
+
+    let schema = require(path).default;
+    if (!schema) {
+        return;
+    }
+
+    return Promise.all([compileTsInterface(path, schema, fileName)]);
+}
+
+Promise.all(getDirFiles(resolve(__dirname, "./src")).map(compileSchema)).then(
+    () => {
+        console.log(`JSON Schemas compiled successfully`);
+    },
+);
