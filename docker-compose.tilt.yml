@@ -32,3 +32,10 @@ services:
             - ./api/src/interfaces:/app/src/interfaces
         environment:
             <<: *postgres-config
+
+    web:
+        image: todo-web
+        container_name: todo-web
+        command: npm start
+        ports:
+            - 8080:3000

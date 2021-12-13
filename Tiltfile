@@ -17,3 +17,18 @@ docker_build(
         "./api/**/*.interface.ts"
     ]
 )
+
+docker_build(
+    "todo-web",
+    ".",
+    dockerfile="Dockerfile.web",
+    target="src",
+    live_update=[
+        fall_back_on("./web/package.json"),
+        sync("./web", "/app")
+    ],
+    only=[
+        "Dockerfile.web",
+        "./web"
+    ],
+)

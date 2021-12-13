@@ -1,0 +1,9 @@
+FROM node:lts-slim as src
+
+WORKDIR /app
+COPY ./web/package.json ./package.json
+RUN npm install
+COPY ./web .
+
+FROM src as dist
+RUN npm run builld
