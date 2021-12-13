@@ -36,6 +36,6 @@ services:
     web:
         image: todo-web
         container_name: todo-web
-        command: npm start
+        command: npm run nodemon
         ports:
             - 8080:3000
