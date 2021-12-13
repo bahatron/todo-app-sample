@@ -1,9 +1,10 @@
 import { Validator } from "@bahatron/utils";
-import { CreateNoteRequest } from "../../interfaces/create-note-request.interface";
-import noteSchema from "../../models/note/note.schema";
-import { $testApi, TEST_AUTH_TOKEN } from "../../utils/jest";
+import { CreateNoteRequest } from "../../../interfaces/create-note-request.interface";
+import noteSchema from "../../../models/note/note.schema";
+import { $testApi, TEST_AUTH_TOKEN } from "../../../utils/jest";
 
 const VALID_NOTE_REQUEST: CreateNoteRequest = {
+    header: "title!",
     body: "hello!",
 };
 

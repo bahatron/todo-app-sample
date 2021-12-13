@@ -1,5 +1,4 @@
 import { Knex } from "knex";
-import { $logger } from "../utils/logger";
 
 export const USER_TABLE = "users";
 export const NOTES_TABLE = "notes";
@@ -23,6 +22,7 @@ export async function up(knex: Knex): Promise<void> {
             table.string("userId");
             table.timestamp("createdAt").notNullable();
             table.timestamp("updatedAt");
+            table.string("header");
             table.text("body");
 
             table.index("userId");

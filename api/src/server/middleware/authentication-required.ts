@@ -1,3 +1,4 @@
+import { Error } from "@bahatron/utils";
 import { AsyncContext } from "@bahatron/utils/lib/context";
 import { RequestHandler } from "express";
 import { validateUserSession } from "../../controllers/auth/validate-user-session/validate-user-session";
@@ -6,9 +7,15 @@ import { $logger } from "../../utils/logger";
 
 export const REQUEST_USER = "request_user";
 
-export const fetchUserSession = () => {
-    return AsyncContext.get(REQUEST_USER) as UserSession | undefined;
-};
+export function fetchUserSession(): UserSession {
+    let session = AsyncContext.get(REQUEST_USER) as UserSession;
+
+    if (!session) {
+        throw Error.Unauthorized();
+    }
+
+    return session;
+}
 
 export const authenticationRequiredMiddleware: RequestHandler = (
     req,

@@ -1,6 +1,5 @@
 import { Error } from "@bahatron/utils";
 import { AsyncContext } from "@bahatron/utils/lib/context";
-import { pick } from "lodash";
 import { $users } from "../../../models/user/user.repository";
 import { asyncRoute } from "../../../server/helpers";
 import {
@@ -8,9 +7,8 @@ import {
     REQUEST_USER,
 } from "../../../server/middleware/authentication-required";
 import { Route } from "../../../server/router";
-import userPublicSchema, {
-    USER_PUBLIC_FIELDS,
-} from "../../../models/user/user-public.schema";
+import userPublicSchema from "../../../models/user/user-public.schema";
+import { UserPublicFactory } from "../../../models/user/user-public.factory";
 
 export const getUserController = asyncRoute(async (req, res) => {
     let userId = req.params.userId;
@@ -24,7 +22,7 @@ export const getUserController = asyncRoute(async (req, res) => {
         throw Error.Unauthorized();
     }
 
-    return res.json(pick(user, USER_PUBLIC_FIELDS));
+    return res.json(UserPublicFactory(user));
 });
 
 export const getUserRoute: Route = {

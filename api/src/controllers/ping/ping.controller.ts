@@ -11,7 +11,7 @@ export const pingRoute: Route = {
     route: "/ping",
     handler: pingController,
     docs: {
-        tags: ["Monitor"],
+        tags: ["APM"],
         description: "ping",
         responses: {
             200: {

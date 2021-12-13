@@ -16,7 +16,7 @@ services:
         volumes:
             - ./postgres/scripts:/scripts
             - ./postgres/dumps:/dumps
-            - ./postgres/dumps/postgres.sql:/docker-entrypoint-initdb.d/postgres.sql
+            # - ./postgres/dumps/postgres.sql:/docker-entrypoint-initdb.d/postgres.sql
         working_dir: /scripts
         environment:
             <<: *postgres-config

@@ -1,10 +1,10 @@
-import noteSchema from "../../models/note/note.schema";
-import { asyncRoute } from "../../server/helpers";
+import noteSchema from "../../../models/note/note.schema";
+import { asyncRoute } from "../../../server/helpers";
 import {
     authenticationRequiredMiddleware,
     fetchUserSession,
-} from "../../server/middleware/authentication-required";
-import { Route } from "../../server/router";
+} from "../../../server/middleware/authentication-required";
+import { Route } from "../../../server/router";
 import { createNote } from "./create-note";
 import createNoteRequestSchema from "./create-note-request.schema";
 

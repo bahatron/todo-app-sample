@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "jest --forceExit --runInBand",
+        "test": "jest --forceExit",
         "start": "node dist/bin/api-server.js",
         "schema:compile": "node compile-jsonschema.js",
         "build": "npm run schema:compile && tsc",
