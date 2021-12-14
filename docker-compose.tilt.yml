@@ -36,13 +36,6 @@ services:
     web:
         image: todo-web
         container_name: todo-web
-        command: npm run nodemon
+        command: npm run serve
         ports:
-            - 8080:3000
-
-    vue:
-        image: todo-vue
-        container_name: todo-vue
-        command: npm run nodemon
-        ports:
-            - 8080:3000
+            - 8080:8080

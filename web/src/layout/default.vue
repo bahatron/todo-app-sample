@@ -1,16 +1,18 @@
 <template>
-    <DefaultLayout>
-        <router-view />
-    </DefaultLayout>
+    <v-app>
+        <Header />
+        <v-main>
+            <slot />
+        </v-main>
+    </v-app>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import DefaultLayout from "./layout/default.vue";
+import Header from "../components/header.vue";
 
 export default defineComponent({
-    name: "App",
-
+    name: "DefaultLayout",
     data() {
         return {
             //
@@ -18,7 +20,7 @@ export default defineComponent({
     },
 
     components: {
-        DefaultLayout,
+        Header,
     },
 });
 </script>

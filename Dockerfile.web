@@ -1,8 +1,8 @@
-FROM node:lts-slim as src
+FROM node:lts as src
 
 WORKDIR /app
 COPY ./web/package.json ./package.json
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY ./web .
 
 FROM src as dist
