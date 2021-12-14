@@ -39,3 +39,10 @@ services:
         command: npm run nodemon
         ports:
             - 8080:3000
+
+    vue:
+        image: todo-vue
+        container_name: todo-vue
+        command: npm run nodemon
+        ports:
+            - 8080:3000
