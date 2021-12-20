@@ -37,7 +37,13 @@
 import Vue, { defineComponent } from "vue";
 export default defineComponent({
     mounted() {
-        this.$store.dispatch("ping");
+        // this.$store.dispatch("ping");
+    },
+
+    methods: {
+        sayHi() {
+            // this.$
+        },
     },
 });
 </script>

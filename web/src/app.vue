@@ -17,6 +17,10 @@ export default defineComponent({
         };
     },
 
+    mounted() {
+        // this.$store.dispatch("s")
+    },
+
     components: {
         DefaultLayout,
     },
