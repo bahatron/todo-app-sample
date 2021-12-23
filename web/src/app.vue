@@ -1,28 +1,13 @@
 <template>
-    <DefaultLayout>
+    <v-app>
         <router-view />
-    </DefaultLayout>
+    </v-app>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import DefaultLayout from "./layout/default.vue";
 
 export default defineComponent({
     name: "App",
-
-    data() {
-        return {
-            //
-        };
-    },
-
-    mounted() {
-        // this.$store.dispatch("s")
-    },
-
-    components: {
-        DefaultLayout,
-    },
 });
 </script>

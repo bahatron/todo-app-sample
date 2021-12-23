@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/home.vue";
+import store from "../store";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -8,13 +9,10 @@ const routes: Array<RouteRecordRaw> = [
         component: Home,
     },
     {
-        path: "/about",
-        name: "About",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
+        name: "login",
+        path: "/login",
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/about.vue"),
+            import(/* webpackChunkName: "login" */ "../views/login.vue"),
     },
 ];
 
@@ -23,8 +21,12 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach((to, from, next) => {
-    // if(localStorage.getItem())
-})
+router.beforeResolve((to, from, next) => {
+    if (store.getters["auth/isUserLoggedIn"] || to.name === "login") {
+        next();
+    }
+
+    next({ name: "login" });
+});
 
 export default router;

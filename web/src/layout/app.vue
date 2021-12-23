@@ -1,10 +1,8 @@
 <template>
-    <v-app>
-        <Header />
-        <v-main>
-            <slot />
-        </v-main>
-    </v-app>
+    <Header />
+    <v-main>
+        <slot />
+    </v-main>
 </template>
 
 <script lang="ts">
@@ -12,7 +10,7 @@ import { defineComponent } from "vue";
 import Header from "../components/header.vue";
 
 export default defineComponent({
-    name: "DefaultLayout",
+    name: "app-layout",
     data() {
         return {
             //

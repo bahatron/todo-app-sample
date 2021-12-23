@@ -4,8 +4,7 @@ import { $axios } from "@/utils/axios";
 
 function stateFactory() {
     return reactive({
-        token: "",
-        session: {},
+        token: localStorage.getItem("token") ?? "",
     });
 }
 
@@ -16,18 +15,27 @@ export default <Module<ReturnType<typeof stateFactory>, any>>{
 
     getters: {
         token: (state) => state.token,
-        session: (state) => state.session,
+        isUserLoggedIn: (state) => Boolean(state.token),
+    },
+
+    mutations: {
+        setToken(state, token) {
+            state.token = token;
+            localStorage.setItem("token", token);
+        },
     },
 
     actions: {
-        async login(context, { email, password }) {
-            try {
-                let { data } = await $axios.get("/ping");
+        async login(context, payload) {
+            let { data } = await $axios({
+                method: "post",
+                url: "/login",
+                data: payload,
+            });
 
-                console.log({ data });
-            } catch (err) {
-                console.error(err);
-            }
+            console.log({ data });
+
+            context.commit("setToken", data);
         },
     },
 };

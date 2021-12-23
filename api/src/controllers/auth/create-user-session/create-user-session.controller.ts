@@ -5,7 +5,13 @@ import { Route } from "../../../server/router";
 import { createSessionToken } from "./create-user-session";
 
 export const createUserSessionController = asyncRoute(async (req, res) => {
-    let session = await createSessionToken(req.body);
+    let { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(400).json("Invalid Request");
+    }
+
+    let session = await createSessionToken({ email, password });
 
     return res.json(session);
 });
@@ -23,7 +29,10 @@ export const createUserSessionRoute: Route = {
                 "application/json": {
                     schema: {
                         type: "object",
-                        properties: pick(userSchema, ["email", "password"]),
+                        properties: pick(userSchema.properties!, [
+                            "email",
+                            "password",
+                        ]),
                     },
                 },
             },
