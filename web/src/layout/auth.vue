@@ -1,9 +1,11 @@
 <template>
-    <v-main>
-        <v-container fluid fill-height>
-            <slot />
-        </v-container>
-    </v-main>
+    <v-app>
+        <v-main>
+            <v-container fluid class="centered fill-height">
+                <slot />
+            </v-container>
+        </v-main>
+    </v-app>
 </template>
 
 <script lang="ts">
@@ -13,3 +15,10 @@ export default defineComponent({
     name: "auth-layout",
 });
 </script>
+
+<style>
+centered {
+    background-color: blanchedalmond;
+    align-items: center;
+}
+</style>

@@ -1,7 +1,7 @@
 
 <template>
     <AuthLayout>
-        <v-card>
+        <v-card class="flex">
             <v-card-header> Login </v-card-header>
             <v-card-text>
                 <v-form>

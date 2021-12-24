@@ -1,8 +1,10 @@
 <template>
-    <Header />
-    <v-main>
-        <slot />
-    </v-main>
+    <v-app>
+        <Header />
+        <v-main>
+            <slot />
+        </v-main>
+    </v-app>
 </template>
 
 <script lang="ts">
