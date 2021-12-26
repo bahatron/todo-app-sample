@@ -2,9 +2,9 @@ import { $notes } from "../../../models/note/note.repository";
 import noteSchema from "../../../models/note/note.schema";
 import { asyncRoute } from "../../../server/helpers";
 import {
-    authenticationRequiredMiddleware,
+    startSessionOrFail,
     fetchUserSession,
-} from "../../../server/middleware/authentication-required";
+} from "../../../server/middleware/authentication";
 import { Route } from "../../../server/router";
 
 export const fetchUserNotesController = asyncRoute(async (req, res) => {
@@ -18,7 +18,7 @@ export const fetchUserNotesController = asyncRoute(async (req, res) => {
 export const fetchUserNotesRoute: Route = {
     method: "get",
     route: "/notes",
-    handler: [authenticationRequiredMiddleware, fetchUserNotesController],
+    handler: [startSessionOrFail, fetchUserNotesController],
     docs: {
         tags: ["Note Management"],
         description: "Fetches Session's User Notes",

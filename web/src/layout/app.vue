@@ -1,6 +1,7 @@
 <template>
     <v-app>
         <Header />
+        <NavBar />
         <v-main>
             <slot />
         </v-main>
@@ -10,6 +11,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Header from "../components/header.vue";
+import NavBar from "../components/nav-bar.vue";
 
 export default defineComponent({
     name: "app-layout",
@@ -21,6 +23,7 @@ export default defineComponent({
 
     components: {
         Header,
+        NavBar,
     },
 });
 </script>

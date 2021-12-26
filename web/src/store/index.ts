@@ -1,6 +1,7 @@
 import { $axios } from "@/utils/axios";
 import { createStore } from "vuex";
 import auth from "./auth";
+import notes from "./notes";
 
 export default createStore({
     state: {},
@@ -13,5 +14,6 @@ export default createStore({
     },
     modules: {
         auth,
+        notes,
     },
 });

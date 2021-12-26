@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <v-main>
-            <v-container fluid class="centered fill-height">
+            <v-container fluid class="fill-height flex align-items-center">
                 <slot />
             </v-container>
         </v-main>

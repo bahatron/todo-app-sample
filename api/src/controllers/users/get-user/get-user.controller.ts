@@ -3,9 +3,9 @@ import { AsyncContext } from "@bahatron/utils/lib/context";
 import { $users } from "../../../models/user/user.repository";
 import { asyncRoute } from "../../../server/helpers";
 import {
-    authenticationRequiredMiddleware,
+    startSessionOrFail,
     REQUEST_USER,
-} from "../../../server/middleware/authentication-required";
+} from "../../../server/middleware/authentication";
 import { Route } from "../../../server/router";
 import userPublicSchema from "../../../models/user/user-public.schema";
 import { UserPublicFactory } from "../../../models/user/user-public.factory";
@@ -28,7 +28,7 @@ export const getUserController = asyncRoute(async (req, res) => {
 export const getUserRoute: Route = {
     method: "get",
     route: "/user/:userId",
-    handler: [authenticationRequiredMiddleware, getUserController],
+    handler: [startSessionOrFail, getUserController],
     docs: {
         tags: ["User Management"],
         description: "Fetch Session User",

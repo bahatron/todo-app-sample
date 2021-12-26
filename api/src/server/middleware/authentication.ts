@@ -17,7 +17,7 @@ export function fetchUserSession(): UserSession {
     return session;
 }
 
-export const authenticationRequiredMiddleware: RequestHandler = (
+export const startSessionOrFail: RequestHandler = (
     req,
     res,
     next,
