@@ -36,8 +36,6 @@ export default <Module<ReturnType<typeof stateFactory>, any>>{
                 data: {},
             });
 
-            console.log({ data });
-
             context.commit("add", data);
         },
 
@@ -54,8 +52,6 @@ export default <Module<ReturnType<typeof stateFactory>, any>>{
                 },
                 data: payload,
             });
-
-            console.log({ data });
 
             context.commit("add", data);
         },

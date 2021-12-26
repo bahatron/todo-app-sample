@@ -1,14 +1,41 @@
 <template>
     <AppLayout>
-        <v-container :style="styles" class="card-area">
-            <v-row>
-                <v-col cols="2" v-for="i of notes" :key="i">
+        <v-container :style="dashboard_header" fluid align="center">
+            <v-row justify="center">
+                <v-col cols="8">
                     <v-card>
-                        <v-card-title> Title! </v-card-title>
-                        <v-card-text>
-                            lorem ipsum I cant be bother to google it
-                        </v-card-text>
+                        <v-card-title
+                            @click="toggleForm"
+                            style="cursor: pointer"
+                        >
+                            Take a note...
+                        </v-card-title>
+                        <v-card class="pa-4" v-if="isFormVisible">
+                            <NoteForm />
+                        </v-card>
                     </v-card>
+                </v-col>
+            </v-row>
+        </v-container>
+
+        <v-container
+            style="background-color: lightgrey"
+            class="background"
+            fluid
+            fill-height
+        >
+            <v-row justify="center">
+                <v-col cols="11">
+                    <v-row>
+                        <v-col cols="2" v-for="i of notes" :key="i">
+                            <v-card>
+                                <v-card-title> Title! </v-card-title>
+                                <v-card-text>
+                                    lorem ipsum I cant be bother to google it
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                    </v-row>
                 </v-col>
             </v-row>
         </v-container>
@@ -16,32 +43,44 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive } from "vue";
 import HelloWorld from "../components/hello-world.vue";
 import AppLayout from "../layout/app.vue";
 import NavBar from "../components/nav-bar.vue";
+import NoteForm from "../components/take-note-form.vue";
 
 export default defineComponent({
     name: "Home",
 
     data() {
-        return {
-            styles: {
-                height: "100%",
+        return reactive({
+            dashboard_header: {
                 "background-color": "lightgrey",
             },
-        };
+            formVisible: false,
+        });
     },
 
     components: {
         HelloWorld,
         AppLayout,
         NavBar,
+        NoteForm,
     },
 
     computed: {
         notes() {
             return this.$store.getters["notes/notes"];
+        },
+
+        isFormVisible(this: any) {
+            return this.formVisible;
+        },
+    },
+
+    methods: {
+        toggleForm() {
+            this.formVisible = !this.formVisible;
         },
     },
 
@@ -61,8 +100,7 @@ export default defineComponent({
 /** 
 @todo: figure out why this doesn't work
 */
-card-area {
-    height: "100%";
+background {
     background-color: blanchedalmond;
 }
 </style>
