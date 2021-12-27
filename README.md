@@ -1,6 +1,6 @@
 # todo-app-sample
 
-A sample TODO notes app using React and Vue in a monorepo fashion
+A sample TODO notes app using Node and Vue in a monorepo fashion
 
 # Get started
 
