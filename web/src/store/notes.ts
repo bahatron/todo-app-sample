@@ -40,10 +40,6 @@ export default <Module<ReturnType<typeof stateFactory>, any>>{
         },
 
         async publish(context, payload) {
-            console.log({
-                token: context.rootGetters["auth/token"],
-            });
-
             let { data } = await $axios({
                 method: "post",
                 url: "/notes",

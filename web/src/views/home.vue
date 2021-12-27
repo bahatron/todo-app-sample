@@ -3,35 +3,18 @@
         <v-container :style="dashboard_header" fluid align="center">
             <v-row justify="center">
                 <v-col cols="8">
-                    <v-card>
-                        <v-card-title
-                            @click="toggleForm"
-                            style="cursor: pointer"
-                        >
-                            Take a note...
-                        </v-card-title>
-                        <v-card class="pa-4" v-if="isFormVisible">
-                            <NoteForm />
-                        </v-card>
-                    </v-card>
+                    <NoteForm />
                 </v-col>
             </v-row>
-        </v-container>
 
-        <v-container
-            style="background-color: lightgrey"
-            class="background"
-            fluid
-            fill-height
-        >
             <v-row justify="center">
                 <v-col cols="11">
                     <v-row>
-                        <v-col cols="2" v-for="i of notes" :key="i">
+                        <v-col cols="2" v-for="note of notes" :key="note">
                             <v-card>
-                                <v-card-title> Title! </v-card-title>
+                                <v-card-title> {{ note.header }} </v-card-title>
                                 <v-card-text>
-                                    lorem ipsum I cant be bother to google it
+                                    {{ note.body }}
                                 </v-card-text>
                             </v-card>
                         </v-col>
@@ -56,6 +39,7 @@ export default defineComponent({
         return reactive({
             dashboard_header: {
                 "background-color": "lightgrey",
+                height: "100%",
             },
             formVisible: false,
         });
@@ -71,16 +55,6 @@ export default defineComponent({
     computed: {
         notes() {
             return this.$store.getters["notes/notes"];
-        },
-
-        isFormVisible(this: any) {
-            return this.formVisible;
-        },
-    },
-
-    methods: {
-        toggleForm() {
-            this.formVisible = !this.formVisible;
         },
     },
 
