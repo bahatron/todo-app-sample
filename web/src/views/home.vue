@@ -59,11 +59,6 @@ export default defineComponent({
     },
 
     async mounted() {
-        await this.$store.dispatch("notes/publish", {
-            header: "Title!",
-            body: "lorem ipsum I cant be bother to google it",
-        });
-
         /** @todo: find a way to initialize notes on store, this seems ugly */
         await this.$store.dispatch("notes/fetch");
     },

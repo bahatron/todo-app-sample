@@ -1,39 +1,46 @@
 
 <template>
     <AuthLayout>
-        <v-card class="flex">
+        <v-card>
             <v-card-header> Login </v-card-header>
-            <v-card-text>
-                <v-form>
-                    <v-container>
-                        <v-row>
-                            <v-col cols="12" md="6">
-                                <v-text-field
-                                    v-model="email"
-                                    label="E-mail"
-                                    required
-                                ></v-text-field>
-                            </v-col>
+            <v-form>
+                <v-card-text>
+                    <v-row>
+                        <v-col cols="12">
+                            <v-text-field
+                                v-model="email"
+                                label="E-mail"
+                                required
+                                outlined
+                            ></v-text-field>
+                        </v-col>
 
-                            <v-col cols="12" md="6">
-                                <v-text-field
-                                    v-model="password"
-                                    :counter="10"
-                                    type="password"
-                                    label="Password"
-                                    required
-                                >
-                                </v-text-field>
-                            </v-col>
-                        </v-row>
-                        <v-row>
-                            <v-col cols="12">
-                                <v-btn @click="doLogin"> Login </v-btn>
-                            </v-col>
-                        </v-row>
-                    </v-container>
-                </v-form>
-            </v-card-text>
+                        <v-col cols="12">
+                            <v-text-field
+                                v-model="password"
+                                :counter="10"
+                                type="password"
+                                label="Password"
+                                required
+                                outlined
+                            >
+                            </v-text-field>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12">
+                            <v-btn color="primary" @click="doLogin">
+                                Login
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card-text>
+            </v-form>
+            <v-card-actions>
+                <span>
+                    <a href="/register">Don't have an account yet? Register</a>
+                </span>
+            </v-card-actions>
         </v-card>
     </AuthLayout>
 </template>

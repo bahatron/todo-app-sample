@@ -130,8 +130,8 @@ ALTER TABLE ONLY public.migrations_lock ALTER COLUMN index SET DEFAULT nextval('
 --
 
 COPY public.migrations (id, name, batch, migration_time) FROM stdin;
-1	20211209163612_initial.js	1	2021-12-13 09:25:13.992+00
-2	20211213091023_default_user.js	1	2021-12-13 09:25:15.717+00
+1	20211209163612_initial.js	1	2021-12-27 17:00:23.203+00
+2	20211213091023_default_user.js	1	2021-12-27 17:00:25.036+00
 \.
 
 
@@ -149,7 +149,7 @@ COPY public.migrations_lock (index, is_locked) FROM stdin;
 --
 
 COPY public.notes (id, "userId", "createdAt", "updatedAt", header, body) FROM stdin;
-72fe990d-f182-4a3b-a4da-471fa66d182b	8555425e-e68f-4495-bba0-69318d43fe1d	2021-12-13 09:28:04.563+00	\N	title!	hello!
+19947027-9b5c-4791-bcd8-d03187960399	21021c29-8181-4996-885f-2a4f282e2f30	2021-12-27 17:00:51.175+00	\N	Title!	lorem ipsum I cant be bother to google it
 \.
 
 
@@ -158,8 +158,7 @@ COPY public.notes (id, "userId", "createdAt", "updatedAt", header, body) FROM st
 --
 
 COPY public.users (id, email, "firstName", "lastName", password, "createdAt", "updatedAt") FROM stdin;
-8555425e-e68f-4495-bba0-69318d43fe1d	test@email.com	\N	\N	$2b$15$knRio4UuK6ZPGJ8QCo9y3.YP9bPa11AWrCouFdnEEANZV4/gJSf6W	2021-12-13 09:25:13.994+00	\N
-f9b6e55b-f11a-4719-b4a7-7537019a1de5	Audra_Satterfield55@gmail.com	Ashleigh	Rempel	$2b$15$Divvc6pVOw3/tgNdV7gEu.6XbZU2IKKqc6GyTyH2tml5R/74sLpLy	2021-12-13 09:28:03.555+00	\N
+8dc38fe2-95d5-4b53-955a-968ec68be23c	test@email.com	\N	\N	$2b$15$RQ1irHgNuBh0c1AQ5n1QYuQagFZHpGqA9ck0LQ34jvy5dBCtYw5.u	2021-12-27 17:00:23.206+00	\N
 \.
 
 

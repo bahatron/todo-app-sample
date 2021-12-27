@@ -7,6 +7,6 @@ const fields = ["header", "body"];
 export default <JSONSchema>{
     type: "object",
     additionalProperties: false,
-    required: fields,
+    required: ["body"],
     properties: pick(noteSchema.properties, fields),
 };

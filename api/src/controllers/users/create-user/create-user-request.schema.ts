@@ -6,5 +6,6 @@ export const PROPERTIES = ["email", "firstName", "lastName", "password"];
 
 export default <JSONSchema>{
     ...userSchema,
+    required: ["email", "password"],
     properties: pick(userSchema.properties!, PROPERTIES),
 };

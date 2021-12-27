@@ -2,6 +2,8 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/home.vue";
 import store from "../store";
 
+const PUBLIC_ROUTES = ["login", "register"];
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
@@ -14,6 +16,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () =>
             import(/* webpackChunkName: "login" */ "../views/login.vue"),
     },
+    {
+        name: "register",
+        path: "/register",
+        component: () =>
+            import(/* webpackChunkName: "register" */ "../views/register.vue"),
+    },
 ];
 
 const router = createRouter({
@@ -22,7 +30,10 @@ const router = createRouter({
 });
 
 router.beforeResolve((to, from, next) => {
-    if (store.getters["auth/isUserLoggedIn"] || to.name === "login") {
+    if (
+        store.getters["auth/isUserLoggedIn"] ||
+        PUBLIC_ROUTES.includes(to.name as any)
+    ) {
         next();
     }
 

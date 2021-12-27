@@ -13,10 +13,10 @@ export default <JSONSchema>{
             format: "email",
         },
         firstName: {
-            type: "string",
+            type: ["string", "null"],
         },
         lastName: {
-            type: "string",
+            type: ["string", "null"],
         },
         password: {
             type: "string",
