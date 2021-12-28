@@ -5,7 +5,11 @@ on:
     pull_request:
         branches:
             - main
-    steps:
-        - run: echo "hi there"
-        - run: docker version
-        - run: docker-compose version
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "hi there"
+            - run: docker version
+            - run: docker-compose version
