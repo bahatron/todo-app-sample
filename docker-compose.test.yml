@@ -11,8 +11,6 @@ services:
     postgres:
         image: postgres:13
         container_name: todo-postgres
-        volumes:
-            - ./postgres/dumps/postgres.sql:/docker-entrypoint-initdb.d/postgres.sql
         environment:
             <<: *postgres-config
 
