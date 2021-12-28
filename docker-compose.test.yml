@@ -11,31 +11,29 @@ services:
     postgres:
         image: postgres:13
         container_name: todo-postgres
-        ports:
-            - 5432:5432
         volumes:
-            - ./postgres/scripts:/scripts
-            - ./postgres/dumps:/dumps
             - ./postgres/dumps/postgres.sql:/docker-entrypoint-initdb.d/postgres.sql
-        working_dir: /scripts
         environment:
             <<: *postgres-config
 
     api:
         image: todo-api
         container_name: todo-api
-        # command: npm run nodemon
-        command: npm run pm2:watch
+        build:
+            dockerfile: Dockerfile.api
+            context: .
         ports:
+            # this is necessary for browser to reach the api :D
             - 3000:3000
-        volumes:
-            - ./api/src/interfaces:/app/src/interfaces
+        command: npm start
         environment:
             <<: *postgres-config
 
     web:
         image: todo-web
         container_name: todo-web
-        command: npm run serve
+        build:
+            dockerfile: Dockerfile.web
+            context: .
         ports:
-            - 8080:8080
+            - 8000:80

@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest --forceExit",
+        "test:ci": "npm run test -- --reporters=default --reporters=jest-stare",
         "start": "node dist/bin/api-server.js",
         "schema:compile": "node compile-jsonschema.js",
         "build": "npm run schema:compile && tsc",
