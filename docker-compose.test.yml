@@ -21,9 +21,11 @@ services:
             dockerfile: Dockerfile.api
             context: .
         ports:
-            # this is necessary for browser to reach the api :D
+            # this is necessary for browser to reach the api
             - 3000:3000
-        command: npm start
+        command: sh -c "wait-for-it postgres:5432 -- npm start"
+        volumes:
+            - ./api-test-results:/app/jest-stare/
         environment:
             <<: *postgres-config
 
