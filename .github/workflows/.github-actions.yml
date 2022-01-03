@@ -16,6 +16,7 @@ jobs:
             - run: docker exec todo-api npm run test:ci
             - name: API test results
               uses: actions/upload-artifact@v2
+              continue-on-error: true
               with:
                   name: api-test-results
                   path: api-test-results/
