@@ -12,7 +12,7 @@ export function UserFactory(data: any): User {
     let errors = Validator.json(data, userSchema);
 
     if (errors.length) {
-        throw Error.ValidationFailed(`validation failed`, { errors });
+        throw Error.ValidationFailed({ errors }, `validation failed`);
     }
 
     return data;
