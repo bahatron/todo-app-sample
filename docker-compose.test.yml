@@ -28,6 +28,8 @@ services:
             - ./api-test-results:/app/jest-stare/
         environment:
             <<: *postgres-config
+        depends_on:
+            - postgres
 
     web:
         image: todo-web
