@@ -5,7 +5,8 @@
     "scripts": {
         "postinstall": "lerna bootstrap",
         "prettier": "prettier --write '**/*.(ts|json|vue|scss)'",
-        "lernaUpdate": "lerna exec -- npm update"
+        "lernaUpdate": "lerna exec -- npm update",
+        "heroku-postbuild": ".ops/heroku-postbuild.sh"
     },
     "repository": {
         "type": "git",

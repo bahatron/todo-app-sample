@@ -6,4 +6,10 @@ export const $config = {
     swaggerTarget: process.env.SWAGGER_TARGET || "/",
     superAdminEmail: process.env.SUPER_ADMIN_EMAIL || "test@email.com",
     superAdminPassword: process.env.SUPER_ADMIN_PASSWORD || "secret",
+    postgresUrl: process.env.POSTGRES_URL,
+    postgresHost: process.env.POSTGRES_HOST,
+    postgresPort: parseInt(process.env.POSTGRES_PORT || ""),
+    postgresUser: process.env.POSTGRES_USER,
+    postgresPassword: process.env.POSTGRES_PASSWORD,
+    postgresDatabase: process.env.POSTGRES_DB,
 };
