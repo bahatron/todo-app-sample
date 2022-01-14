@@ -2,6 +2,10 @@
 
 GITROOT="$(git rev-parse --show-toplevel)"
 
-cd "${GITROOT}/${_service}/";
+SERVICE_DIR="${GITROOT}/${_service}/";
+
+echo "SERVICE DIR: ${SERVICE_DIR}"
+
+cd ${SERVICE_DIR}
 
 ls -la;
