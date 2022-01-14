@@ -12,7 +12,7 @@ export function Note(data: any): Note {
     let errors = Validator.json(data, noteSchema);
 
     if (errors.length) {
-        throw Error.ValidationFailed("Validation failed", errors);
+        throw Error.ValidationFailed("Validation failed", { errors });
     }
 
     return data;
