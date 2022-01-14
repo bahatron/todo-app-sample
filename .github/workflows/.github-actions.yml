@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - run: docker-compose -f "${GITHUB_WORKSPACE}/docker-compose.test.yml" build --parallel
+            - run: docker-compose -f "${GITHUB_WORKSPACE}/docker-compose.test.yml" build
             - run: docker-compose -f "${GITHUB_WORKSPACE}/docker-compose.test.yml" up -d
             - run: docker exec todo-api npm run test:ci
             - name: API test results
