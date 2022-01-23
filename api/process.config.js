@@ -16,9 +16,9 @@ module.exports = {
         {
             name: "api-server",
             script: "dist/bin/api-server.js",
-            watch: ["dist"],
+            watch: process.env.NODE_ENV === "production" ? undefined : ["dist"],
             exec_mode: "cluster",
-            instances: "max",
+            instances: "3",
         },
     ].map((app) => ({ ...app, ...LOG_OPTIONS })),
 };

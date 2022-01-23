@@ -6,11 +6,7 @@ BASEDIR="$(dirname $0)"
 
 SERVICE_DIR="${BASEDIR}/../${_service}/";
 
-echo "SERVICE DIR: ${SERVICE_DIR}"
-
-cd ${SERVICE_DIR}
-
-npm install && npm run build
+# cd ${SERVICE_DIR}
 
 # if [${_service} = "api"]
 # then

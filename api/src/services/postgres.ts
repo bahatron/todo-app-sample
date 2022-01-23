@@ -4,7 +4,7 @@ import { $config } from "../utils/config";
 
 export const CONFIG: Knex.Config = {
     client: "pg",
-    connection: $config.postgresUrl ?? {
+    connection: $config.databaseUrl ?? {
         host: $config.postgresHost,
         port: $config.postgresPort,
         user: $config.postgresUser,
