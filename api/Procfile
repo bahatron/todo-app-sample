@@ -1,1 +1,1 @@
-web: npm run build:clean && npm run start
+web: sh -c "npm run build:clean && npm run start"
