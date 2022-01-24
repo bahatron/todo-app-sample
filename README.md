@@ -2,6 +2,13 @@
 
 > A sample TODO notes app using Node and Vue in a monorepo fashion
 
+## See it Running on Heroku
+
+You can see the application running at:
+
+-   https://bht-todo-app.herokuapp.com/
+-   https://bht-todo-api.herokuapp.com/docs
+
 ## Running Locally
 
 ### Required Dependencies
@@ -21,8 +28,6 @@ npm install
 # you can run the app with simply use docker-compose
 docker-compose up --build
 ```
-
-## See it Running on Heroku
 
 ## Resources:
 
