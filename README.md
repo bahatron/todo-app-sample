@@ -24,4 +24,8 @@ docker-compose up --build
 
 ## See it Running on Heroku
 
-WIP
+## Resources:
+
+-   [Heroku Monorepo Buildpack](https://github.com/lstoll/heroku-buildpack-monorepo)
+-   [Article to deploy monorepos to Heroku and Github Actions](https://blog.softup.co/how-to-deploy-a-monorepo-to-multiple-heroku-apps-using-github-actions/)
+-   [Postgres SSL fix for Heroku](https://stackoverflow.com/questions/25000183/node-js-postgresql-error-no-pg-hba-conf-entry-for-host)

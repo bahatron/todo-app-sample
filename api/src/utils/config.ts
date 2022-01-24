@@ -11,5 +11,7 @@ export const $config = {
     postgresUser: process.env.POSTGRES_USER,
     postgresPassword: process.env.POSTGRES_PASSWORD,
     postgresDatabase: process.env.POSTGRES_DB,
-    databaseUrl: process.env.DATABASE_URL, // this is for Heroku
+    // this is for Heroku
+    databaseUrl: process.env.DATABASE_URL,
+    apiPort: process.env.PORT || 3000,
 };
